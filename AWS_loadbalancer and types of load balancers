@@ -1,0 +1,33 @@
+Definition and Function of a Load Balancer
+A load balancer is essentially a server responsible for distributing incoming internet traffic to multiple backend EC2 instances. This mechanism ensures efficient load handling and a seamless response, as it balances traffic across instances when user volume increases.
+Key functions and features of AWS Load Balancers include:
+• Traffic Distribution: It evenly spreads requests across the EC2 instances.
+• User Access: It exposes a DNS host name for users to access the application.
+• Health Checks: It performs health checks and removes any unhealthy instances from the routing process.
+• Security: It assists in easily managing HTTPS for secure connections.
+• Availability: It works across multiple availability zones.
+AWS Management vs. Self-Managed
+AWS offers the Elastic Load Balancing (ELB) service, which AWS manages completely. This management includes provisioning, upgrades, maintenance, and ensuring high availability. Users do not need to manage the servers themselves.
+Although it is possible to set up a self-managed load balancer on an EC2 instance (which may be less expensive), the source warns that this requires significantly more management, including OS management, maintenance, updates, and integration.
+Types of AWS Load Balancers
+AWS offers several types of load balancers, each working at a different network layer and suited for specific use cases:
+Load Balancer Type
+OSI Layer
+Key Protocols Supported
+Best Used For
+Application Load Balancer (ALB)
+Layer 7
+HTTP, HTTPS, and gRPC
+Web applications, microservices, and advanced routing like path-based or host-based routing. It also exposes a DNS host name.
+Network Load Balancer (NLB)
+Layer 4
+TCP and UDP
+Ultra high performance and capable of handling millions of requests per second. Ideal for low latency or high throughput applications. It provides a static IP via Elastic IP.
+Gateway Load Balancer (GLB)
+Layer 3
+IP packets using the Geneive protocol
+Routing traffic to third-party security virtual appliances such as firewalls or intrusion detection systems. It inspects and filters traffic before it reaches your applications and supports deep packet inspection.
+Classic Load Balancer (CLB)
+Layer 4 and 7
+(Supports both)
+This is the older generation load balancer. It has been replaced by ALB and NLB and is being retired in 2023.
